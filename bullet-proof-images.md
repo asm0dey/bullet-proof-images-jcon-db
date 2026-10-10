@@ -99,7 +99,7 @@ class: imgtxt dossier
 <div class="field"><span>LANGUAGES</span>Java · Kotlin</div>
 <div class="field"><span>FIELD RECORD</span>Has built hardened images by hand</div>
 <div class="field"><span>NOTE</span>Will be honest about what it costs</div>
-<div class="field"><span>CONTACT</span>asm0dey.site</div>
+<div class="field"><span>CONTACT</span>https://asm0dey.site</div>
 
 <div class="stamp">CLEARED</div>
 

@@ -25,7 +25,7 @@ class: title-slide
 
 Pasha Finkelshteyn · Developer Advocate, BellSoft
 
-<div class="handle">@asm0dey</div>
+<div class="handle"><a href="https://asm0dey.site">asm0dey.site</a></div>
 
 <!--
 **Deck up**
@@ -198,26 +198,22 @@ layout: default
 
 # Why this costs money
 
-vulnerability -> remote code execution -> data breach
+<div class="kicker">vulnerability → remote code execution → data breach</div>
 
-<v-click>
+<div class="stats">
+<div v-click class="stat">
+  <div class="stat-num">~6%</div>
+  <div class="stat-label">of published CVEs exploited in the wild<br><span class="stat-aside">≈ 3 of your 46</span></div>
+</div>
+<div v-click class="stat">
+  <div class="stat-num">$4.44M</div>
+  <div class="stat-label">average breach cost<br><span class="stat-aside">US: $10.22M</span></div>
+</div>
+</div>
 
-~6% of published CVEs have been exploited in the wild  
-average breach cost: $4.44M (US: $10.22M)
+<div v-click class="punch">Money is recoverable. An audit finding follows you for years.</div>
 
-</v-click>
-
-<v-click>
-
-Money is recoverable. An audit finding follows you for years.
-
-</v-click>
-
-<v-click>
-
-sources: [Cyentia & FIRST, EPSS Data and Performance (2024)](https://www.cyentia.com/publication/exploit-prediction-scoring-system-2/) · [IBM, Cost of a Data Breach (2025)](https://www.ibm.com/reports/data-breach)
-
-</v-click>
+<div class="sources">sources: <a href="https://www.cyentia.com/publication/exploit-prediction-scoring-system-2/">Cyentia &amp; FIRST, EPSS Data and Performance (2024)</a> · <a href="https://www.ibm.com/reports/data-breach">IBM, Cost of a Data Breach (2025)</a></div>
 
 <!--
 About six percent of published vulnerabilities have ever been exploited in the wild. Of your forty-six, that is roughly three. Not all of them are going to hurt you. A few will.
@@ -315,7 +311,7 @@ layout: default
 <div class="code-note">
   <div v-click.hide="1">Hands the container the host. If you need it, you need a VM.</div>
   <div v-click="[1,2]">Start from zero capabilities — not from Docker's default set.</div>
-  <div v-click="[2,3]">Add back the one you actually need, and forbid regaining any more.</div>
+  <div v-click="[2,3]">NET_BIND_SERVICE: bind ports below 1024 (like :80) without root. Add back only that, and forbid regaining any more.</div>
   <div v-click="[3,4]">Immutable filesystem. Writable scratch only where the app really writes.</div>
   <div v-click="4">Four flags. No rebuild, no code change, works on the image you ship today.</div>
 </div>
@@ -432,30 +428,22 @@ layout: default
 
 # What CVSS can't tell you
 
-CVSS = how bad this COULD be, in the abstract.
+<div class="kicker">CVSS = how bad this <em>could</em> be, in the abstract. It doesn't know:</div>
 
-It doesn't know:
+<div class="cvss-grid">
+<div class="unknowns">
+  <div v-click class="unknown"><span class="q">?</span>Do you call that code path?</div>
+  <div v-click class="unknown"><span class="q">?</span>Is it reachable from outside?</div>
+  <div v-click class="unknown"><span class="q">?</span>Does a fix even exist?</div>
+</div>
+<div v-click class="stat example">
+  <div class="stat-label"><a href="https://spring.io/security/cve-2022-22965">Spring4Shell · CVE-2022-22965</a></div>
+  <div class="stat-num">9.8 <span class="stat-unit">CVSS</span></div>
+  <div class="stat-label">Known exploit needs a WAR on Tomcat.<br><span class="stat-aside">Spring Boot fat jar: not exploitable that way.</span></div>
+</div>
+</div>
 
-<v-clicks>
-
-- whether you call that code path
-- whether it's reachable from outside
-- whether a fix exists
-
-</v-clicks>
-
-<v-click>
-
-**Example:** [Spring4Shell, CVE-2022-22965](https://spring.io/security/cve-2022-22965) — CVSS **9.8**.  
-Known exploit needs a WAR on Tomcat. A Spring Boot fat jar: not exploitable that way.
-
-</v-click>
-
-<v-click>
-
-Sorting by CVSS is sorting by someone else's worst case.
-
-</v-click>
+<div v-click class="punch">Sorting by CVSS is sorting by someone else's worst case.</div>
 
 <!--
 Step 3 — triage under fire
@@ -758,19 +746,16 @@ layout: default
 
 # Ownership is the decision
 
-Someone must own the base layer under an SLA.  
-It can be your platform team - if it's funded like a distro team.
+<div class="thesis">Someone must own the base layer, under an SLA.</div>
+<div class="kicker">It can be your platform team — if it's funded like a distro team.</div>
 
-Whoever it is, require:
-
-<v-clicks>
-
-- demonstrable OS + runtime security expertise
-- signed evidence shipped with the artifact
-- a patch SLA with a number on it
-- components built from source
-
-</v-clicks>
+<div class="req-head">WHOEVER IT IS, REQUIRE</div>
+<div class="reqs">
+  <div v-click class="req"><span class="req-n">01</span>Demonstrable OS + runtime security expertise</div>
+  <div v-click class="req"><span class="req-n">02</span>Signed evidence shipped with the artifact</div>
+  <div v-click class="req"><span class="req-n">03</span>A patch SLA with a number on it</div>
+  <div v-click class="req"><span class="req-n">04</span>Components built from source</div>
+</div>
 
 <!--
 name the limits; no product verdict
@@ -900,20 +885,22 @@ layout: default
 
 # "Isn't Latest Safer Than Pinned?"
 
-"If I always build from latest, I always have the patches."
+<div class="objection">"If I always build from latest, I always have the patches."</div>
 
-<v-click>
+<div v-click class="versus">
+  <div class="side">
+    <div class="side-name">LATEST</div>
+    <div class="gain"><span>+</span>patches arrive free</div>
+    <div class="cost"><span>−</span>untested changes arrive free</div>
+  </div>
+  <div class="side">
+    <div class="side-name">PINNED</div>
+    <div class="gain"><span>+</span>you ship what you tested</div>
+    <div class="cost"><span>−</span>patches wait for you</div>
+  </div>
+</div>
 
-latest:  patches arrive free   |  untested changes arrive free  
-pinned:  you ship what you tested  |  patches wait for you
-
-</v-click>
-
-<v-click>
-
-Pin what you tested. Automate the proposal. Keep the human in the test.
-
-</v-click>
+<div v-click class="punch">Pin what you tested. Automate the proposal. Keep the human in the test.</div>
 
 <!--
 voice the objection at FULL strength before they can
@@ -1024,15 +1011,15 @@ layout: default
 
 # Hardened isn't permanent
 
-The supplier keeps patching.  
+<div class="kicker">The supplier keeps patching. Your pipeline doesn't notice.</div>
 
-Your pipeline doesn't notice.
+<div class="drift">
+  <div class="drift-label"></div><div class="m">MAR</div><div class="m">APR</div><div class="m">MAY</div><div class="m">JUN</div><div class="m">JUL</div><div class="m">AUG</div><div class="m">SEP</div>
+  <div class="drift-label">SUPPLIER</div><div></div><div class="patch">●</div><div class="patch">●</div><div class="patch">●</div><div class="patch">●</div><div class="patch">●</div><div class="patch">●</div>
+  <div class="drift-label">YOUR IMAGE</div><div class="pin">pulled</div><div class="flat"></div><div class="flat"></div><div class="flat"></div><div class="flat"></div><div class="flat"></div><div class="stale">still MAR</div>
+</div>
 
-<v-click>
-
-A hardened image you pulled in March is a March image in September.
-
-</v-click>
+<div v-click class="punch">A hardened image you pulled in March is a March image in September.</div>
 
 <!--
 Keeping the room clean
@@ -1044,21 +1031,16 @@ layout: default
 
 # Let the robots open the PRs
 
-Renovate / Dependabot
+<div class="kicker"><b>Renovate</b> / <b>Dependabot</b> watch the base-image digest and your dependencies, and open a PR when either moves.</div>
 
-<v-clicks>
+<div v-click class="pr">
+  <div class="pr-head"><span class="pr-badge">Open</span>chore(deps): update eclipse-temurin:25-jre digest to <code>a1b2c3d</code></div>
+  <div class="pr-meta">renovate[bot] wants to merge 1 commit into <code>main</code></div>
+  <div class="pr-diff"><span class="del">- FROM eclipse-temurin:25-jre@sha256:9f3c…</span><span class="add">+ FROM eclipse-temurin:25-jre@sha256:a1b2…</span></div>
+  <div class="pr-check"><span class="dot"></span>tests — waiting for you</div>
+</div>
 
-- watch: base image digest + application dependencies
-- do:    open a PR when either moves
-
-</v-clicks>
-
-<v-click>
-
-They're good workers and stupid ones.  
-The PR is the proposal. You still run the tests.
-
-</v-click>
+<div v-click class="punch">They're good workers and stupid ones.</div>
 
 <!--
 humour serves the argument, never replaces it
@@ -1151,7 +1133,7 @@ Every step in this talk, as a checklist. No strings.
 
 <v-click>
 
-@asm0dey · [asm0dey.site](https://asm0dey.site)
+[asm0dey.site](https://asm0dey.site)
 
 </v-click>
 

@@ -232,3 +232,69 @@
   box-shadow: inset 0 0 120px 30px rgba(5,7,10,.85);
   filter: brightness(.72) contrast(1.25);
 }
+
+/* "Why this costs money" — two stat cards; numbers carry the slide */
+.slidev-layout .kicker { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .95em; color: var(--teal); letter-spacing: .04em; margin-top: -.2em; }
+.slidev-layout .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6em; margin-top: 1.3em; }
+.slidev-layout .stat { border-left: 3px solid var(--teal-dim); padding-left: .9em; }
+.slidev-layout .stat-num { font-size: 3.4em; font-weight: 600; line-height: 1; color: var(--paper); letter-spacing: -.02em; }
+.slidev-layout .stat-label { font-size: 1.05em; color: var(--teal); margin-top: .35em; line-height: 1.35; }
+.slidev-layout .stat-aside { color: var(--amber); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .9em; }
+.slidev-layout .punch { font-size: 1.35em; color: var(--paper); margin-top: 1.4em; }
+.slidev-layout .sources { position: absolute; bottom: 3.6em; left: 3.5rem; right: 3.5rem; font-size: .6em; color: var(--teal-dim); }
+.slidev-layout .sources a { color: var(--teal-dim); border-bottom: 1px dotted currentColor; text-decoration: none; }
+
+/* "What CVSS can't tell you" — three unknowns vs one concrete 9.8 */
+.slidev-layout .kicker em { color: var(--paper); font-style: normal; }
+.slidev-layout .cvss-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2em; margin-top: 1.3em; align-items: start; }
+.slidev-layout .unknown { font-size: 1.2em; color: var(--paper); padding: .35em 0; border-bottom: 1px solid rgba(64,96,111,.25); }
+.slidev-layout .unknown .q { display: inline-block; width: 1.3em; color: var(--amber); font-weight: 700; font-size: 1.2em; }
+.slidev-layout .example .stat-label a { color: var(--teal); border-bottom: 1px dotted currentColor; text-decoration: none; }
+.slidev-layout .stat-unit { font-size: .3em; color: var(--teal-dim); letter-spacing: .1em; font-weight: 400; }
+/* arrowhead at the foot of each chain connector */
+.slidev-layout .chain-wait { position: relative; padding-bottom: .45em; }
+.slidev-layout .chain-wait::after {
+  content: ''; position: absolute; left: -7px; bottom: 0;
+  border-left: 6px solid transparent; border-right: 6px solid transparent;
+  border-top: 8px solid var(--teal);
+}
+
+/* "Ownership is the decision" — the thesis, then four numbered requirements */
+.slidev-layout .thesis { font-size: 1.3em; font-weight: 400; color: var(--paper); line-height: 1.3; margin-top: 0; }
+.slidev-layout .thesis + .kicker { margin-top: .5em; }
+.slidev-layout .req-head { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .7em; letter-spacing: .25em; color: var(--amber); margin-top: 1.6em; }
+.slidev-layout .reqs { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; gap: .7em 1.4em; margin-top: .7em; }
+.slidev-layout .req { display: flex; align-items: center; gap: .8em; font-size: 1.1em; color: var(--paper); background: var(--ink-2); border: 1px solid rgba(64,96,111,.45); border-radius: 6px; padding: .6em .9em; }
+.slidev-layout .req-n { font-family: 'JetBrains Mono', ui-monospace, monospace; color: var(--amber); font-size: .9em; }
+
+/* "Isn't latest safer than pinned?" — objection, then a real two-sided comparison */
+.slidev-layout .objection { font-size: 1.3em; font-style: italic; color: var(--paper); border-left: 3px solid var(--amber); padding-left: .8em; }
+.slidev-layout .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4em; margin-top: 1.4em; }
+.slidev-layout .side { background: var(--ink-2); border: 1px solid rgba(64,96,111,.45); border-radius: 6px; padding: .8em 1em; }
+.slidev-layout .side-name { font-family: 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .25em; font-size: .8em; color: var(--teal); margin-bottom: .5em; }
+.slidev-layout .gain, .slidev-layout .cost { font-size: 1.1em; padding: .2em 0; color: var(--paper); }
+.slidev-layout .gain span, .slidev-layout .cost span { display: inline-block; width: 1.2em; font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 700; }
+.slidev-layout .gain span { color: var(--teal); }
+.slidev-layout .cost span { color: var(--teal); }
+
+/* "Hardened isn't permanent" — supplier patches move, your pinned pull doesn't */
+.slidev-layout .drift { display: grid; grid-template-columns: 8em repeat(7, 1fr); row-gap: .9em; align-items: center; margin-top: 1.6em; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.slidev-layout .drift-label { font-size: .75em; letter-spacing: .2em; color: var(--teal); }
+.slidev-layout .drift .m { font-size: .85em; color: var(--teal-dim); text-align: center; letter-spacing: .1em; }
+.slidev-layout .drift .patch { text-align: center; color: var(--teal); font-size: 1.1em; }
+.slidev-layout .drift .pin { text-align: center; color: var(--ink); background: var(--amber); border-radius: 4px; font-size: .8em; padding: .15em 0; margin: 0 .3em; }
+.slidev-layout .drift .flat { border-top: 2px dashed var(--teal-dim); height: 0; }
+.slidev-layout .drift .stale { text-align: center; color: var(--amber); font-size: .8em; border: 1px solid var(--amber); border-radius: 4px; padding: .15em 0; margin: 0 .2em; }
+
+/* "Let the robots open the PRs" — the proposal is a PR card; the human runs the tests */
+.slidev-layout .kicker b { color: var(--paper); font-weight: 600; }
+.slidev-layout .pr { margin-top: 1.3em; background: var(--ink-2); border: 1px solid rgba(64,96,111,.5); border-radius: 8px; padding: .9em 1.1em; max-width: 46em; }
+.slidev-layout .pr-head { font-size: 1.05em; color: var(--paper); font-weight: 600; display: flex; align-items: center; gap: .6em; }
+.slidev-layout .pr-badge { font-size: .65em; font-weight: 600; color: var(--ink); background: var(--teal); border-radius: 999px; padding: .15em .7em; }
+.slidev-layout .pr-meta { font-size: .75em; color: var(--teal-dim); margin: .3em 0 .7em; }
+.slidev-layout .pr-diff { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .78em; display: flex; flex-direction: column; background: var(--ink); border-radius: 4px; padding: .5em .7em; }
+.slidev-layout .pr-diff .del { color: #9a6a6a; }
+.slidev-layout .pr-diff .add { color: var(--teal); }
+.slidev-layout .pr-check { margin-top: .7em; font-size: .85em; color: var(--amber); display: flex; align-items: center; gap: .5em; }
+.slidev-layout .pr-check .dot { width: .7em; height: .7em; border-radius: 50%; border: 2px solid var(--amber); }
+.slidev-layout .pr code { color: var(--amber); background: none; }

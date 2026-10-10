@@ -153,6 +153,7 @@ zlib1g        CVE-2026-xxxxx   MEDIUM    1.3.1      (none)
 </v-click>
 
 <!--
+**Name the gap:** at 46, go back to their guesses - "who said 50? closest. Who said five?" - one image, from one FROM line
 **Say nothing about the FIXED column**
 PLANT → `patch-column`
 `TODO: DATA-01`
@@ -617,33 +618,27 @@ layout: default
 
 # Why it isn't here
 
-<br>
-
-```mermaid {scale: 0.68}
-%%{init: {'theme':'base','themeVariables':{
-  'background':'#05070a',
-  'primaryColor':'#0b1016','primaryTextColor':'#dfe8ee','primaryBorderColor':'#40606f',
-  'lineColor':'#7fb3c8','edgeLabelBackground':'#05070a','tertiaryColor':'#0b1016',
-  'fontFamily':'Inter','fontSize':'16px'
-}}}%%
-flowchart LR
-  A[CVE published] -->|hours-weeks| B[upstream fix]
-  B -->|hours-days| C[OS package]
-  C -->|their cadence| D[image rebuild]
-  D --> E[you]
-  style E stroke:#f0a03c,color:#f0a03c
-```
-
-<v-click>
-
-<div class="mt-14">
-
-A free image is a gift, not a commitment.  
-Nobody in that chain owes you a date - including us.
-
+<div class="chain-slide">
+<div class="chain">
+  <div class="chain-node">CVE published</div>
+  <div class="chain-wait">hours – weeks</div>
+  <div class="chain-node">Upstream fix</div>
+  <div class="chain-wait">hours – days</div>
+  <div class="chain-node">OS package</div>
+  <div class="chain-wait">their cadence</div>
+  <div class="chain-node">Image rebuild</div>
+  <div class="chain-wait">&nbsp;</div>
+  <div class="chain-node chain-you">You</div>
 </div>
 
-</v-click>
+<div v-click class="chain-verdict">
+
+A free image is a gift, not a commitment.
+
+Nobody in that chain owes you a date — including us.
+
+</div>
+</div>
 
 <!--
 depth is the credibility here
@@ -666,7 +661,9 @@ So what do we do?
 </v-clicks>
 
 <!--
-make them commit a number out loud BEFORE the reveal
+hands up for each option - make them pick one
+after the vote: "I don't have a fourth option for you, actually." (landed at Devoxx - keep it)
+then blackout
 -->
 
 ---
@@ -1067,23 +1064,6 @@ humour serves the argument, never replaces it
 -->
 
 ---
-layout: full
-class: fullbleed zone-upper
----
-
-<div class="bg-image" style="background-image:url(/illustrations/slide-49.jpg)"></div>
-
-<div class="scrim"></div>
-
-<h1 class="overlay-title">Not sterile. Liveable.</h1>
-
-<!--
-**Point at the tide line.**
-end higher than you started - not on a to-do list
-← PAYOFF `the-room`
--->
-
----
 layout: default
 ---
 
@@ -1125,6 +1105,23 @@ Four things. Start Monday.
 
 <!--
 four asks, aimed at four different people
+-->
+
+---
+layout: full
+class: fullbleed zone-upper
+---
+
+<div class="bg-image" style="background-image:url(/illustrations/slide-49.jpg)"></div>
+
+<div class="scrim"></div>
+
+<h1 class="overlay-title">Not sterile. Liveable.</h1>
+
+<!--
+**Point at the tide line.**
+end higher than you started - not on a to-do list
+← PAYOFF `the-room`
 -->
 
 ---

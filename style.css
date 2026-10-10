@@ -201,8 +201,24 @@
 .slidev-layout .code-note {
   position: relative; margin-top: 1.1em; min-height: 2.4em;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: .8em; line-height: 1.5; color: var(--teal);
+  font-size: 1em; line-height: 1.5; color: var(--teal);
   border-left: 2px solid var(--amber); padding-left: .8em;
 }
 /* every note occupies the same box, so the code above never shifts */
 .slidev-layout .code-note > div { position: absolute; left: .8em; right: 0; }
+
+/* "Why it isn't here" — the CVE-to-you chain, sized to read from the back row.
+   Replaces a 5-node mermaid flowchart whose labels shrank to ~11px. */
+.slidev-layout .chain-slide { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2em; align-items: center; margin-top: .2em; }
+.slidev-layout .chain { display: flex; flex-direction: column; align-items: flex-start; }
+.slidev-layout .chain-node {
+  font-size: 1.5em; line-height: 1.2; color: var(--paper);
+  border: 2px solid var(--teal-dim); border-radius: 6px; padding: .18em .7em; background: var(--ink-2);
+}
+.slidev-layout .chain-wait {
+  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 1.1em; color: var(--teal);
+  border-left: 2px solid var(--teal); margin-left: 1.4em; padding: .12em 0 .12em .8em;
+}
+.slidev-layout .chain-you { color: var(--amber); border-color: var(--amber); }
+.slidev-layout .chain-verdict { font-size: 1.35em; line-height: 1.35; color: var(--teal); }
+.slidev-layout .chain-verdict p { margin: 0 0 .8em; }
